@@ -1460,11 +1460,18 @@ a {
     cursor: pointer;
     pointer-events: all;
     z-index: 10;
+    opacity: 0.9;
+}
+
+.play-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .play-btn:hover {
     transform: translate(-50%, -50%) scale(1.1);
     box-shadow: 0 15px 40px rgba(255, 0, 80, 0.4);
+    opacity: 1;
 }
 
 .video-overlay {

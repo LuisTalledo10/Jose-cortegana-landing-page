@@ -1002,44 +1002,44 @@ function initializeVideoControls() {
         }
     };
     
-    // Auto-play en hover (después de que se cargue el componente)
+    // Configurar video después de que se cargue el componente
     setTimeout(() => {
-        const videoContainer = document.querySelector('.project-preview');
         const video = document.querySelector('.tiktok-video');
+        const videoContainer = document.querySelector('.project-preview');
         
-        if (videoContainer && video) {
-            console.log('🎬 Configurando auto-play en hover');
+        if (video && videoContainer) {
+            console.log('🎬 Configurando video TikTok');
             
-            videoContainer.addEventListener('mouseenter', function() {
-                if (video.paused) {
-                    video.play().catch(e => {
-                        console.log('Auto-play bloqueado por el navegador');
-                    });
-                }
-            });
+            // Auto-reproducir el video en loop silencioso
+            video.muted = true;
+            video.loop = true;
+            video.autoplay = true;
             
-            videoContainer.addEventListener('mouseleave', function() {
-                video.pause();
-                video.currentTime = 0;
-                // Resetear botón
-                const playBtn = videoContainer.querySelector('.play-btn i');
+            // Intentar reproducir automáticamente
+            video.play().then(() => {
+                console.log('✅ Video reproduciéndose automáticamente');
+                // Ocultar el botón de play ya que se reproduce solo
+                const playBtn = videoContainer.querySelector('.play-btn');
                 if (playBtn) {
-                    playBtn.className = 'fas fa-play';
-                    videoContainer.querySelector('.play-btn').style.opacity = '1';
+                    playBtn.style.display = 'none';
                 }
+            }).catch(e => {
+                console.log('Auto-play bloqueado, mostrando botón de control');
+                // Si no puede auto-reproducir, mantener el botón visible
             });
             
-            // Evento cuando el video termina
-            video.addEventListener('ended', function() {
-                const playBtn = videoContainer.querySelector('.play-btn i');
-                if (playBtn) {
-                    playBtn.className = 'fas fa-play';
-                    videoContainer.querySelector('.play-btn').style.opacity = '1';
-                }
-                video.currentTime = 0;
+            // Evento cuando el video se puede reproducir
+            video.addEventListener('canplay', function() {
+                console.log('📹 Video listo para reproducir');
             });
+            
+            // Evento si hay error al cargar
+            video.addEventListener('error', function(e) {
+                console.error('Error al cargar video:', e);
+            });
+            
         } else {
-            console.log('⚠️ Video o contenedor no encontrado para auto-play');
+            console.log('⚠️ Video no encontrado');
         }
     }, 500); // Esperar medio segundo para que se cargue el componente
 }
