@@ -524,10 +524,6 @@ function createCatalogItem(item) {
     div.innerHTML = `
         <img src="${item.image}" alt="${item.title}" class="catalog-image" 
              onerror="this.src='assets/images/placeholder.jpg'">
-        <div class="catalog-info">
-            <h3 class="catalog-title">${item.title}</h3>
-            <p class="catalog-description">${item.description}</p>
-        </div>
     `;
     
     div.addEventListener('click', () => openModal(item));
