@@ -1,0 +1,74 @@
+<!-- Sección TikTok con Embed Oficial Real -->
+<section id="tiktok" class="tiktok-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">
+                <i class="fab fa-tiktok"></i>
+                Síguenos en TikTok
+            </h2>
+            <p class="section-subtitle">Descubre nuestros proyectos de diseño interior en video</p>
+        </div>
+        
+        <!-- Mensaje de carga -->
+        <div id="tiktok-loading" style="text-align: center; padding: 40px; color: white;">
+            <div style="display: inline-block; width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #ff0050; animation: spin 1s ease-in-out infinite; margin-bottom: 20px;"></div>
+            <p>Cargando contenido de TikTok...</p>
+        </div>
+        
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jc.disenointerior" data-unique-id="jc.disenointerior" data-embed-from="embed_page" data-embed-type="creator" style="max-width:780px; min-width:288px; margin: 0 auto;"> 
+            <section> 
+                <a target="_blank" href="https://www.tiktok.com/@jc.disenointerior?refer=creator_embed">@jc.disenointerior</a> 
+                <p>🏠✨ Diseño de interiores que transforma espacios</p>
+            </section> 
+        </blockquote> 
+        <script async src="https://www.tiktok.com/embed.js"></script>
+        
+        <!-- Botón de respaldo -->
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="https://www.tiktok.com/@jc.disenointerior?_t=ZS-901j2fr7JJg&_r=1" 
+               target="_blank" 
+               style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(45deg, #ff0050, #ff6b9d); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem;">
+                <i class="fab fa-tiktok" style="font-size: 1.3rem;"></i>
+                <span>Ver nuestro perfil en TikTok</span>
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+        
+    </div>
+</section>
+
+<style>
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.tiktok-embed {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+}
+</style>
+
+<script>
+// Ocultar el loading cuando el embed se carga
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        const loading = document.getElementById('tiktok-loading');
+        if (loading) {
+            loading.style.display = 'none';
+        }
+    }, 3000); // Esperar 3 segundos para que TikTok cargue
+});
+
+// Si el embed no carga en 10 segundos, mostrar solo el botón
+setTimeout(function() {
+    const loading = document.getElementById('tiktok-loading');
+    if (loading) {
+        loading.innerHTML = '<p style="color: #cccccc; font-size: 1rem;">El embed de TikTok está cargando...<br><small>Si no aparece, usa el botón de abajo para ver nuestro perfil.</small></p>';
+    }
+}, 10000);
+</script>

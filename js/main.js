@@ -14,6 +14,7 @@ const AppState = {
         catalog: null,
         services: null,
         about: null,
+        tiktok: null,
         contact: null,
         banner: null,
         footer: null
@@ -247,6 +248,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         initializeModal();
         initializeScrollEffects();
         initializeContactForm();
+        initializeTikTok();
         
         hideLoadingSpinner();
         
@@ -266,6 +268,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         initializeModal();
         initializeScrollEffects();
         initializeContactForm();
+        initializeTikTok();
         hideLoadingSpinner();
     }
 });
@@ -280,6 +283,7 @@ async function loadAllComponents() {
         { name: 'catalog', container: 'catalog-container' },
         { name: 'services', container: 'services-container' },
         { name: 'about', container: 'about-container' },
+        { name: 'tiktok', container: 'tiktok-container' },
         { name: 'contact', container: 'contact-container' },
         { name: 'banner', container: 'banner-container' },
         { name: 'footer', container: 'footer-container' }
@@ -340,6 +344,40 @@ function loadFallbackContent(componentName, containerId) {
                     <h1 class="hero-title">Diseño de Interiores que refleja tu estilo</h1>
                     <p class="hero-subtitle">Fabricación de mobiliarios: Cocina, Sala, Comedor y Dormitorios</p>
                     <a href="#contact" class="cta-button">Solicita tu cotización</a>
+                </div>
+            </section>
+        `,
+        tiktok: `
+            <section id="tiktok" class="tiktok-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Mira nuestro trabajo en TikTok</h2>
+                        <p class="section-subtitle">Descubre nuestras creaciones y tendencias de diseño interior</p>
+                    </div>
+                    <div class="tiktok-fallback" style="display: block;">
+                        <div class="fallback-content">
+                            <div class="fallback-icon">
+                                <i class="fab fa-tiktok"></i>
+                            </div>
+                            <h3>¡Síguenos en TikTok!</h3>
+                            <p>Descubre nuestros mejores trabajos y tendencias de diseño interior en nuestra cuenta oficial</p>
+                            <a href="https://www.tiktok.com/@jc.disenointerior?_t=ZS-901j2fr7JJg&_r=1" 
+                               target="_blank" 
+                               class="btn-tiktok">
+                                <i class="fab fa-tiktok"></i>
+                                Ver en TikTok
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tiktok-cta">
+                        <a href="https://www.tiktok.com/@jc.disenointerior?_t=ZS-901j2fr7JJg&_r=1" 
+                           target="_blank" 
+                           class="btn-tiktok-main">
+                            <i class="fab fa-tiktok"></i>
+                            <span>Ver todos nuestros videos</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </section>
         `
@@ -928,3 +966,34 @@ window.JoseCorteganaApp = {
     closeModal,
     Utils
 };
+
+/**
+ * Inicializar funcionalidad TikTok (simplificada para widget oficial)
+ */
+function initializeTikTok() {
+    console.log('🎵 Inicializando sección TikTok con API...');
+    
+    // Verificar que el componente esté cargado
+    const tiktokSection = document.getElementById('tiktok');
+    if (!tiktokSection) {
+        console.log('⚠️ Sección TikTok no encontrada');
+        return;
+    }
+    
+    console.log('✅ Sección TikTok inicializada - La lógica está en el componente HTML');
+    
+    // Track cuando se carga la sección TikTok
+    trackTikTokSectionLoad();
+}
+
+/**
+ * Track cuando se carga la sección TikTok
+ */
+function trackTikTokSectionLoad() {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'section_load', {
+            event_category: 'Social Media',
+            event_label: 'TikTok API Section Loaded'
+        });
+    }
+}

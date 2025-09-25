@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test TikTok Section</title>
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div id="tiktok-container"></div>
+    
+    <!-- Modal para video de TikTok -->
+    <div id="tiktok-modal" class="tiktok-modal">
+        <div class="tiktok-modal-content">
+            <span class="tiktok-close">&times;</span>
+            <div class="tiktok-video-container">
+                <iframe id="tiktok-iframe" 
+                        src="" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <div class="tiktok-video-info">
+                <h3 id="tiktok-video-title"></h3>
+                <p id="tiktok-video-description"></p>
+                <a id="tiktok-video-link" href="" target="_blank" class="btn-watch-tiktok">
+                    <i class="fab fa-tiktok"></i>
+                    Ver en TikTok
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Cargar componente TikTok
+        async function loadTikTok() {
+            try {
+                const response = await fetch('components/tiktok.html');
+                const html = await response.text();
+                document.getElementById('tiktok-container').innerHTML = html;
+                
+                // Simular datos y funcionalidad básica
+                setTimeout(() => {
+                    const grid = document.getElementById('tiktok-grid');
+                    if (grid) {
+                        grid.innerHTML = `
+                            <div class="tiktok-video-card" data-video-id="1">
+                                <img src="assets/images/cocina/cocina1.png" alt="Test Video" class="tiktok-video-thumbnail">
+                                <div class="tiktok-icon"><i class="fab fa-tiktok"></i></div>
+                                <div class="tiktok-video-overlay">
+                                    <div class="tiktok-play-button"><i class="fas fa-play"></i></div>
+                                </div>
+                                <div class="tiktok-video-info">
+                                    <h3 class="tiktok-video-title">Cocina Moderna Test</h3>
+                                    <p class="tiktok-video-description">Descripción de prueba</p>
+                                </div>
+                            </div>
+                        `;
+                        
+                        // Event listener básico
+                        const card = grid.querySelector('.tiktok-video-card');
+                        card.addEventListener('click', () => {
+                            alert('¡Funciona! Se abriría el modal aquí.');
+                        });
+                    }
+                }, 500);
+                
+            } catch (error) {
+                console.error('Error cargando TikTok:', error);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadTikTok);
+    </script>
+</body>
+</html>
