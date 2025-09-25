@@ -10,13 +10,16 @@
             <div class="project-highlight">
                 <div class="project-preview">
                     <video 
-                        src="assets/TikVid.io_7541971934158785799.mp4" 
                         loop 
                         playsinline
                         poster="assets/images/cocina/cocina1.png"
                         class="tiktok-video"
                         preload="auto"
-                        controls>
+                        controls
+                        crossorigin="anonymous">
+                        <source src="assets/TikVid.io_7541971934158785799.webm" type="video/webm">
+                        <source src="assets/TikVid.io_7541971934158785799.mp4" type="video/mp4">
+                        <p>Tu navegador no soporta videos HTML5. <a href="assets/TikVid.io_7541971934158785799.webm">Descarga el video</a>.</p>
                     </video>
                     <div class="video-controls">
                         <button class="play-btn" onclick="toggleVideo(this)" type="button" aria-label="Reproducir video">

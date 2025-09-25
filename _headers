@@ -1,0 +1,28 @@
+# Configuración de headers para Netlify
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Headers específicos para videos
+/assets/*.mp4
+  Content-Type: video/mp4
+  Accept-Ranges: bytes
+  Cache-Control: public, max-age=31536000
+
+/assets/*.webm
+  Content-Type: video/webm; codecs="vp8, vorbis"
+  Accept-Ranges: bytes
+  Cache-Control: public, max-age=31536000
+
+/assets/*.ogv
+  Content-Type: video/ogg
+  Accept-Ranges: bytes
+  Cache-Control: public, max-age=31536000
+
+# CORS headers para todos los archivos
+/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+  Access-Control-Allow-Headers: Content-Type, Authorization
