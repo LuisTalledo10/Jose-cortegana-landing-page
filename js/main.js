@@ -354,29 +354,8 @@ function loadFallbackContent(componentName, containerId) {
                         <h2 class="section-title">Mira nuestro trabajo en TikTok</h2>
                         <p class="section-subtitle">Descubre nuestras creaciones y tendencias de diseño interior</p>
                     </div>
-                    <div class="tiktok-fallback" style="display: block;">
-                        <div class="fallback-content">
-                            <div class="fallback-icon">
-                                <i class="fab fa-tiktok"></i>
-                            </div>
-                            <h3>¡Síguenos en TikTok!</h3>
-                            <p>Descubre nuestros mejores trabajos y tendencias de diseño interior en nuestra cuenta oficial</p>
-                            <a href="https://www.tiktok.com/@jc.disenointerior?_t=ZS-901j2fr7JJg&_r=1" 
-                               target="_blank" 
-                               class="btn-tiktok">
-                                <i class="fab fa-tiktok"></i>
-                                Ver en TikTok
-                            </a>
-                        </div>
-                    </div>
-                    <div class="tiktok-cta">
-                        <a href="https://www.tiktok.com/@jc.disenointerior?_t=ZS-901j2fr7JJg&_r=1" 
-                           target="_blank" 
-                           class="btn-tiktok-main">
-                            <i class="fab fa-tiktok"></i>
-                            <span>Ver todos nuestros videos</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+                    <div class="tiktok-embed-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jc.disenointerior" data-unique-id="jc.disenointerior" data-embed-from="embed_page" data-embed-type="creator" style="max-width:780px; min-width:288px;"> <section> <a target="_blank" href="https://www.tiktok.com/@jc.disenointerior?refer=creator_embed">@jc.disenointerior</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                     </div>
                 </div>
             </section>
