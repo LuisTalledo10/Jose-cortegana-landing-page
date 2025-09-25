@@ -355,7 +355,11 @@ function loadFallbackContent(componentName, containerId) {
                         <p class="section-subtitle">Descubre nuestras creaciones y tendencias de diseño interior</p>
                     </div>
                     <div class="tiktok-embed-container">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jc.disenointerior" data-unique-id="jc.disenointerior" data-embed-from="embed_page" data-embed-type="creator" style="max-width:780px; min-width:288px;"> <section> <a target="_blank" href="https://www.tiktok.com/@jc.disenointerior?refer=creator_embed">@jc.disenointerior</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jc.disenointerior" data-unique-id="jc.disenointerior" data-embed-from="embed_page" data-embed-type="creator" style="max-width:780px; min-width:288px;">
+                            <section>
+                                <a target="_blank" href="https://www.tiktok.com/@jc.disenointerior?refer=creator_embed">@jc.disenointerior</a>
+                            </section>
+                        </blockquote>
                     </div>
                 </div>
             </section>
@@ -950,7 +954,7 @@ window.JoseCorteganaApp = {
  * Inicializar funcionalidad TikTok (simplificada para widget oficial)
  */
 function initializeTikTok() {
-    console.log('🎵 Inicializando sección TikTok con API...');
+    console.log('🎵 Inicializando sección TikTok con embed oficial...');
     
     // Verificar que el componente esté cargado
     const tiktokSection = document.getElementById('tiktok');
@@ -959,7 +963,16 @@ function initializeTikTok() {
         return;
     }
     
-    console.log('✅ Sección TikTok inicializada - La lógica está en el componente HTML');
+    // Cargar script de TikTok si no existe
+    if (!document.querySelector('script[src*="tiktok.com/embed.js"]')) {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.tiktok.com/embed.js';
+        document.head.appendChild(script);
+        console.log('✅ Script de TikTok cargado');
+    }
+    
+    console.log('✅ Sección TikTok inicializada con embed oficial');
     
     // Track cuando se carga la sección TikTok
     trackTikTokSectionLoad();
