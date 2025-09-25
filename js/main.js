@@ -954,7 +954,7 @@ window.JoseCorteganaApp = {
  * Inicializar funcionalidad TikTok (simplificada para widget oficial)
  */
 function initializeTikTok() {
-    console.log('🎵 Inicializando sección TikTok con embed oficial...');
+    console.log('🎵 Inicializando sección TikTok con video local...');
     
     // Verificar que el componente esté cargado
     const tiktokSection = document.getElementById('tiktok');
@@ -963,19 +963,85 @@ function initializeTikTok() {
         return;
     }
     
-    // Cargar script de TikTok si no existe
-    if (!document.querySelector('script[src*="tiktok.com/embed.js"]')) {
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.tiktok.com/embed.js';
-        document.head.appendChild(script);
-        console.log('✅ Script de TikTok cargado');
-    }
+    // Inicializar controles del video
+    initializeVideoControls();
     
-    console.log('✅ Sección TikTok inicializada con embed oficial');
+    console.log('✅ Sección TikTok inicializada con video local');
     
     // Track cuando se carga la sección TikTok
     trackTikTokSectionLoad();
+}
+
+/**
+ * Inicializar controles del video TikTok
+ */
+function initializeVideoControls() {
+    // Función global para toggle del video
+    window.toggleVideo = function(button) {
+        const video = button.closest('.project-preview').querySelector('.tiktok-video');
+        const icon = button.querySelector('i');
+        
+        if (!video) {
+            console.error('Video no encontrado');
+            return;
+        }
+        
+        if (video.paused) {
+            video.play().then(() => {
+                icon.className = 'fas fa-pause';
+                button.style.opacity = '0.7';
+                console.log('▶️ Video reproduciendo');
+            }).catch(e => {
+                console.error('Error al reproducir video:', e);
+            });
+        } else {
+            video.pause();
+            icon.className = 'fas fa-play';
+            button.style.opacity = '1';
+            console.log('⏸️ Video pausado');
+        }
+    };
+    
+    // Auto-play en hover (después de que se cargue el componente)
+    setTimeout(() => {
+        const videoContainer = document.querySelector('.project-preview');
+        const video = document.querySelector('.tiktok-video');
+        
+        if (videoContainer && video) {
+            console.log('🎬 Configurando auto-play en hover');
+            
+            videoContainer.addEventListener('mouseenter', function() {
+                if (video.paused) {
+                    video.play().catch(e => {
+                        console.log('Auto-play bloqueado por el navegador');
+                    });
+                }
+            });
+            
+            videoContainer.addEventListener('mouseleave', function() {
+                video.pause();
+                video.currentTime = 0;
+                // Resetear botón
+                const playBtn = videoContainer.querySelector('.play-btn i');
+                if (playBtn) {
+                    playBtn.className = 'fas fa-play';
+                    videoContainer.querySelector('.play-btn').style.opacity = '1';
+                }
+            });
+            
+            // Evento cuando el video termina
+            video.addEventListener('ended', function() {
+                const playBtn = videoContainer.querySelector('.play-btn i');
+                if (playBtn) {
+                    playBtn.className = 'fas fa-play';
+                    videoContainer.querySelector('.play-btn').style.opacity = '1';
+                }
+                video.currentTime = 0;
+            });
+        } else {
+            console.log('⚠️ Video o contenedor no encontrado para auto-play');
+        }
+    }, 500); // Esperar medio segundo para que se cargue el componente
 }
 
 /**

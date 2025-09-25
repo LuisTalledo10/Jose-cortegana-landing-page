@@ -18,7 +18,7 @@
                         class="tiktok-video">
                     </video>
                     <div class="video-controls">
-                        <button class="play-btn" onclick="toggleVideo(this)">
+                        <button class="play-btn" onclick="toggleVideo(this)" type="button" aria-label="Reproducir video">
                             <i class="fas fa-play"></i>
                         </button>
                         <div class="video-overlay">
@@ -67,37 +67,3 @@
         </div>
     </div>
 </section>
-
-<script>
-function toggleVideo(button) {
-    const video = button.closest('.project-preview').querySelector('.tiktok-video');
-    const icon = button.querySelector('i');
-    
-    if (video.paused) {
-        video.play();
-        icon.className = 'fas fa-pause';
-        button.style.opacity = '0.7';
-    } else {
-        video.pause();
-        icon.className = 'fas fa-play';
-        button.style.opacity = '1';
-    }
-}
-
-// Auto-play en hover (opcional)
-document.addEventListener('DOMContentLoaded', function() {
-    const videoContainer = document.querySelector('.project-preview');
-    const video = document.querySelector('.tiktok-video');
-    
-    if (videoContainer && video) {
-        videoContainer.addEventListener('mouseenter', function() {
-            video.play().catch(e => console.log('Autoplay prevented'));
-        });
-        
-        videoContainer.addEventListener('mouseleave', function() {
-            video.pause();
-            video.currentTime = 0;
-        });
-    }
-});
-</script>
