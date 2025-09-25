@@ -1414,7 +1414,88 @@ a {
     position: relative;
     border-radius: 15px;
     overflow: hidden;
-    aspect-ratio: 16/10;
+    aspect-ratio: 9/16; /* Proporción vertical de TikTok */
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.tiktok-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+}
+
+.project-highlight:hover .tiktok-video {
+    transform: scale(1.02);
+}
+
+.video-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(45deg, #ff0050, #e55a87);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 30px rgba(255, 0, 80, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    pointer-events: all;
+    z-index: 10;
+}
+
+.play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 15px 40px rgba(255, 0, 80, 0.4);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.1) 50%,
+        rgba(0,0,0,0.3) 100%
+    );
+    pointer-events: none;
+}
+
+.video-overlay .tiktok-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ff0050;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 5px 15px rgba(255, 0, 80, 0.3);
 }
 
 .project-preview img {
@@ -1577,4 +1658,49 @@ a {
     box-shadow: 0 15px 40px rgba(255, 0, 80, 0.4);
     color: white;
     text-decoration: none;
+}
+
+/* Responsive para showcase de video TikTok */
+@media (max-width: 768px) {
+    .project-highlight {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 20px;
+    }
+    
+    .project-preview {
+        max-width: 280px;
+        aspect-ratio: 9/16;
+    }
+    
+    .play-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.3rem;
+    }
+    
+    .video-overlay .tiktok-logo {
+        width: 35px;
+        height: 35px;
+        top: 15px;
+        right: 15px;
+        font-size: 1.1rem;
+    }
+    
+    .cta-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .cta-icon {
+        justify-self: center;
+    }
+    
+    .btn-follow-tiktok {
+        justify-self: center;
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
 }

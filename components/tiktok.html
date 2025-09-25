@@ -5,13 +5,27 @@
             <p class="section-subtitle">Descubre nuestras creaciones y tendencias de diseño interior</p>
         </div>
         
-        <!-- Galería de proyectos destacados con enlaces a TikTok -->
+        <!-- Galería de proyectos destacados con video de TikTok -->
         <div class="social-showcase">
             <div class="project-highlight">
                 <div class="project-preview">
-                    <img src="assets/images/cocina/cocina1.png" alt="Proyecto de cocina moderna" />
-                    <div class="play-overlay">
-                        <i class="fas fa-play"></i>
+                    <video 
+                        src="assets/TikVid.io_7541971934158785799.mp4" 
+                        muted 
+                        loop 
+                        playsinline
+                        poster="assets/images/cocina/cocina1.png"
+                        class="tiktok-video">
+                    </video>
+                    <div class="video-controls">
+                        <button class="play-btn" onclick="toggleVideo(this)">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="video-overlay">
+                            <div class="tiktok-logo">
+                                <i class="fab fa-tiktok"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="project-info">
@@ -53,3 +67,37 @@
         </div>
     </div>
 </section>
+
+<script>
+function toggleVideo(button) {
+    const video = button.closest('.project-preview').querySelector('.tiktok-video');
+    const icon = button.querySelector('i');
+    
+    if (video.paused) {
+        video.play();
+        icon.className = 'fas fa-pause';
+        button.style.opacity = '0.7';
+    } else {
+        video.pause();
+        icon.className = 'fas fa-play';
+        button.style.opacity = '1';
+    }
+}
+
+// Auto-play en hover (opcional)
+document.addEventListener('DOMContentLoaded', function() {
+    const videoContainer = document.querySelector('.project-preview');
+    const video = document.querySelector('.tiktok-video');
+    
+    if (videoContainer && video) {
+        videoContainer.addEventListener('mouseenter', function() {
+            video.play().catch(e => console.log('Autoplay prevented'));
+        });
+        
+        videoContainer.addEventListener('mouseleave', function() {
+            video.pause();
+            video.currentTime = 0;
+        });
+    }
+});
+</script>
