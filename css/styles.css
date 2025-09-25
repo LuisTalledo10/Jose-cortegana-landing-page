@@ -1427,6 +1427,28 @@ a {
     border-radius: 15px;
 }
 
+.tiktok-video::-webkit-media-controls-panel {
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+
+.tiktok-video::-webkit-media-controls-play-button,
+.tiktok-video::-webkit-media-controls-mute-button,
+.tiktok-video::-webkit-media-controls-fullscreen-button {
+    background-color: rgba(255, 0, 80, 0.8);
+    border-radius: 50%;
+}
+
+.tiktok-video::-webkit-media-controls-timeline {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.tiktok-video::-webkit-media-controls-current-time-display,
+.tiktok-video::-webkit-media-controls-time-remaining-display {
+    color: white;
+    font-weight: bold;
+}
+
 .project-highlight:hover .tiktok-video {
     transform: scale(1.02);
 }
@@ -1551,6 +1573,42 @@ a {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 20px;
+}
+
+.project-details ul {
+    color: #cccccc;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.project-details ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+}
+
+.project-details ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ff6b9d;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.project-details .call-to-action {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(255, 0, 80, 0.1);
+    border-left: 4px solid #ff0050;
+    border-radius: 0 10px 10px 0;
 }
 
 .project-features {

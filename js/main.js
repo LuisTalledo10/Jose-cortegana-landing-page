@@ -1008,34 +1008,35 @@ function initializeVideoControls() {
         const videoContainer = document.querySelector('.project-preview');
         
         if (video && videoContainer) {
-            console.log('🎬 Configurando video TikTok');
+            console.log('🎬 Configurando video TikTok con audio');
             
-            // Auto-reproducir el video en loop silencioso
-            video.muted = true;
+            // Configurar video con audio y controles nativos
             video.loop = true;
-            video.autoplay = true;
+            video.volume = 0.7; // Volumen al 70%
             
-            // Intentar reproducir automáticamente
-            video.play().then(() => {
-                console.log('✅ Video reproduciéndose automáticamente');
-                // Ocultar el botón de play ya que se reproduce solo
-                const playBtn = videoContainer.querySelector('.play-btn');
-                if (playBtn) {
-                    playBtn.style.display = 'none';
-                }
-            }).catch(e => {
-                console.log('Auto-play bloqueado, mostrando botón de control');
-                // Si no puede auto-reproducir, mantener el botón visible
-            });
+            // Ocultar el botón personalizado ya que usamos controles nativos
+            const playBtn = videoContainer.querySelector('.play-btn');
+            if (playBtn) {
+                playBtn.style.display = 'none';
+            }
             
             // Evento cuando el video se puede reproducir
             video.addEventListener('canplay', function() {
-                console.log('📹 Video listo para reproducir');
+                console.log('📹 Video con audio listo para reproducir');
             });
             
             // Evento si hay error al cargar
             video.addEventListener('error', function(e) {
                 console.error('Error al cargar video:', e);
+            });
+            
+            // Evento cuando el usuario interactúa con los controles
+            video.addEventListener('play', function() {
+                console.log('▶️ Video con audio reproduciéndose');
+            });
+            
+            video.addEventListener('pause', function() {
+                console.log('⏸️ Video pausado por el usuario');
             });
             
         } else {
