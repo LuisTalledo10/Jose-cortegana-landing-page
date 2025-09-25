@@ -1,0 +1,234 @@
+<section class="contact section" id="contact">
+    <div class="container">
+        <!-- Título de la sección -->
+        <h2 class="section-title">Contáctanos</h2>
+        
+        <!-- Subtítulo descriptivo -->
+        <p style="text-align: center; margin-bottom: 3rem; color: var(--text-light); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            ¿Listo para transformar tu espacio? Contáctanos para una consulta gratuita y comenzar a crear el ambiente de tus sueños
+        </p>
+        
+        <!-- Contenido principal de contacto -->
+        <div class="contact-content">
+            <!-- Formulario de contacto -->
+            <div class="contact-form">
+                <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;">
+                    Solicita tu Cotización Gratuita
+                </h3>
+                
+                <form id="contact-form" novalidate>
+                    <!-- Campo Nombre -->
+                    <div class="form-group">
+                        <label for="name">
+                            <i class="fas fa-user" style="margin-right: 0.5rem;"></i>
+                            Nombre Completo *
+                        </label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Ingresa tu nombre completo"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- Campo Email -->
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>
+                            Correo Electrónico *
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="tu.email@ejemplo.com"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- Campo Teléfono -->
+                    <div class="form-group">
+                        <label for="phone">
+                            <i class="fas fa-phone" style="margin-right: 0.5rem;"></i>
+                            Teléfono *
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            placeholder="+51 999 999 999"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- Campo Tipo de Proyecto -->
+                    <div class="form-group">
+                        <label for="project-type">
+                            <i class="fas fa-home" style="margin-right: 0.5rem;"></i>
+                            Tipo de Proyecto
+                        </label>
+                        <select id="project-type" name="project-type" style="width: 100%; padding: 1rem; border: 2px solid transparent; border-radius: 8px; background: var(--white); transition: var(--transition-smooth); font-family: var(--font-secondary);">
+                            <option value="">Selecciona el tipo de proyecto</option>
+                            <option value="cocina">Cocina</option>
+                            <option value="sala">Sala</option>
+                            <option value="comedor">Comedor</option>
+                            <option value="dormitorios">Dormitorios</option>
+                            <option value="oficina">Oficina</option>
+                            <option value="proyecto-completo">Proyecto Completo</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Campo Mensaje -->
+                    <div class="form-group">
+                        <label for="message">
+                            <i class="fas fa-comment" style="margin-right: 0.5rem;"></i>
+                            Mensaje *
+                        </label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            placeholder="Cuéntanos sobre tu proyecto: dimensiones del espacio, estilo preferido, presupuesto aproximado, etc."
+                            required
+                        ></textarea>
+                    </div>
+                    
+                    <!-- Checkbox de términos -->
+                    <div class="form-group" style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                        <input 
+                            type="checkbox" 
+                            id="terms" 
+                            name="terms" 
+                            required
+                            style="margin-top: 0.25rem;"
+                        >
+                        <label for="terms" style="font-size: 0.9rem; line-height: 1.4;">
+                            Acepto los términos y condiciones, y autorizo el tratamiento de mis datos personales para fines comerciales.
+                        </label>
+                    </div>
+                    
+                    <!-- Botón de envío -->
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>
+                        Enviar Solicitud
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Información de contacto -->
+            <div class="contact-info">
+                <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                    Información de Contacto
+                </h3>
+                
+                <!-- Dirección -->
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Dirección:</strong><br>
+                        <span style="color: var(--text-light);">
+                            Av. Principal 123, Distrito Ejemplo<br>
+                            Lima, Perú
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Teléfono -->
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Teléfono:</strong><br>
+                        <a href="tel:+51999999999" style="color: var(--primary-color);">
+                            +51 999 999 999
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Correo:</strong><br>
+                        <a href="mailto:contacto@josecortegana.com" style="color: var(--primary-color);">
+                            contacto@josecortegana.com
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Horario -->
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong>Horario de Atención:</strong><br>
+                        <span style="color: var(--text-light);">
+                            Lunes a Viernes: 9:00 AM - 6:00 PM<br>
+                            Sábados: 9:00 AM - 2:00 PM
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Redes sociales -->
+                <div class="contact-social" style="margin-top: 2rem;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Síguenos en:</h4>
+                    <div class="social-links" style="justify-content: flex-start;">
+                        <a href="https://facebook.com/josecorteganainteriors" 
+                           target="_blank" 
+                           class="social-link"
+                           aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/josecorteganainteriors" 
+                           target="_blank" 
+                           class="social-link"
+                           aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/51999999999" 
+                           target="_blank" 
+                           class="social-link"
+                           aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:contacto@josecortegana.com" 
+                           class="social-link"
+                           aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mapa (placeholder) -->
+                <div class="contact-map" style="margin-top: 2rem;">
+                    <div style="width: 100%; height: 200px; background: var(--secondary-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
+                        <div style="text-align: center;">
+                            <i class="fas fa-map" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            <p>Mapa interactivo<br><small>Próximamente disponible</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Información adicional -->
+        <div class="contact-additional" style="margin-top: 3rem; text-align: center; background: var(--secondary-color); padding: 2rem; border-radius: 10px;">
+            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">¿Necesitas Atención Inmediata?</h4>
+            <p style="color: var(--text-light); margin-bottom: 1rem;">
+                Para consultas urgentes o proyectos que requieren atención inmediata, no dudes en contactarnos directamente
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="tel:+51999999999" class="cta-button" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-phone"></i>
+                    Llamar Ahora
+                </a>
+                <a href="https://wa.me/51999999999?text=Hola,%20me%20interesa%20sus%20servicios%20de%20diseño%20de%20interiores" 
+                   target="_blank" 
+                   class="cta-button" 
+                   style="display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366;">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

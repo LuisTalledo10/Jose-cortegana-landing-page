@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose Cortegana | Diseño de Interiores</title>
+    
+    <!-- Tipografías de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Jose Cortegana - Diseño de Interiores. Fabricación de mobiliarios premium para cocina, sala, comedor y dormitorios.">
+    <meta name="keywords" content="diseño interiores, muebles, cocina, sala, comedor, dormitorios, melamina, madera">
+    <meta property="og:title" content="Jose Cortegana | Diseño de Interiores">
+    <meta property="og:description" content="Diseño de Interiores que refleja tu estilo. Fabricación de mobiliarios premium.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/MAIN LOGO.png">
+    <link rel="apple-touch-icon" href="assets/images/MAIN LOGO.png">
+</head>
+<body>
+    <!-- Header será cargado dinámicamente -->
+    <div id="header-container"></div>
+    
+    <!-- Contenido principal -->
+    <main id="main-content">
+        <!-- Hero Section será cargada dinámicamente -->
+        <div id="hero-container"></div>
+        
+        <!-- Catálogo será cargado dinámicamente -->
+        <div id="catalog-container"></div>
+        
+        <!-- Servicios será cargado dinámicamente -->
+        <div id="services-container"></div>
+        
+        <!-- Sobre Nosotros será cargado dinámicamente -->
+        <div id="about-container"></div>
+        
+        <!-- Contacto será cargado dinámicamente -->
+        <div id="contact-container"></div>
+        
+        <!-- Banner será cargado dinámicamente -->
+        <div id="banner-container"></div>
+    </main>
+    
+    <!-- Footer será cargado dinámicamente -->
+    <div id="footer-container"></div>
+    
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/51999999999?text=Hola,%20me%20interesa%20sus%20servicios%20de%20diseño%20de%20interiores" 
+       class="whatsapp-float" 
+       target="_blank"
+       aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Modal para imágenes del catálogo -->
+    <div id="image-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modal-title"></h3>
+                <p id="modal-description"></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loading spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+    
+    <!-- JavaScript principal -->
+    <script src="js/main.js"></script>
+</body>
+</html>

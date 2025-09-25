@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://josecortegana.com/sitemap.xml
+
+# Disallow development files
+Disallow: /css/
+Disallow: /js/
+Disallow: /components/
+Disallow: *.txt
+Disallow: *.md
+Disallow: /assets/icons/
+
+# Allow important directories
+Allow: /assets/images/
+
+# Crawl-delay (optional)
+Crawl-delay: 1
