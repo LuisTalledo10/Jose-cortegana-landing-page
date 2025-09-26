@@ -443,7 +443,7 @@ a {
 
 /* Contacto */
 .contact {
-    padding: 5rem 0;
+    padding: 3rem 0;
     background: linear-gradient(rgba(92, 46, 46, 0.7), rgba(92, 46, 46, 0.7)), url('../assets/images/fondo-hero.jpeg');
     background-size: cover;
     background-position: center;
@@ -468,6 +468,64 @@ a {
     gap: 3rem;
 }
 
+/* Nuevo layout de 2 columnas para contacto */
+.contact-content-full {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    height: 85vh;
+    min-height: 650px;
+}
+
+.contact-form-col {
+    background: rgba(245, 241, 230, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(92, 46, 46, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-right-col {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1.5rem;
+}
+
+.contact-info-col,
+.contact-map-col {
+    background: rgba(245, 241, 230, 0.95);
+    padding: 1.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(92, 46, 46, 0.3);
+}
+
+.contact-info-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-map-col {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+/* Estilos para formulario en filas */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-half {
+    margin-bottom: 0 !important;
+}
+
 .contact-form {
     background: rgba(245, 241, 230, 0.95);
     padding: 2rem;
@@ -477,7 +535,7 @@ a {
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .form-group label {
@@ -527,6 +585,13 @@ a {
     transform: translateY(-2px);
 }
 
+/* Botón del mapa más pequeño */
+.submit-btn.map-btn {
+    width: auto;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+}
+
 .contact-info {
     padding: 2rem;
     background: rgba(255, 255, 255, 0.9);
@@ -543,7 +608,7 @@ a {
 .contact-item {
     display: flex;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     gap: 1rem;
 }
 
@@ -551,6 +616,60 @@ a {
     font-size: 1.2rem;
     color: var(--primary-color);
     width: 20px;
+    flex-shrink: 0;
+}
+
+/* Grid para información de contacto compacta */
+.contact-info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.contact-info-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.contact-item-compact {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+.contact-item-compact i {
+    font-size: 1rem;
+    color: var(--primary-color);
+    width: 18px;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.contact-item-compact div {
+    font-size: 0.95rem;
+}
+
+.contact-item-compact strong {
+    font-size: 0.9rem;
+}
+
+/* Redes sociales más pequeñas */
+.social-link-small {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 0.9rem !important;
+}
+
+/* Mapa de contacto */
+.contact-map iframe {
+    transition: var(--transition-smooth);
+    border-radius: 10px;
+}
+
+.contact-map iframe:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 /* Footer */
@@ -813,6 +932,33 @@ a {
 }
 
 /* Responsive Design */
+
+/* Tablets - Layout responsivo */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .contact-content-full {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: auto;
+    }
+    
+    .contact-right-col {
+        grid-template-rows: none;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-info-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .contact-form-col,
+    .contact-info-col,
+    .contact-map-col {
+        padding: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 0 1rem;
@@ -894,6 +1040,37 @@ a {
         grid-template-columns: 1fr;
     }
     
+    .contact-content-full {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        height: auto;
+        min-height: auto;
+    }
+    
+    .contact-right-col {
+        grid-template-rows: none;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-info-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .form-half {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .contact-map iframe {
+        height: 250px;
+    }
+    
     .brands-grid {
         gap: 2rem !important;
         justify-content: center !important;
@@ -962,16 +1139,20 @@ a {
         height: 50px;
         font-size: 1.5rem;
     }
+    
+    .contact-map iframe {
+        height: 200px;
+    }
 }
 
 /* =============================================================================
-   🎥 SECCIÓN TIKTOK - CON EMBED OFICIAL REAL
+   📱 SECCIÓN REDES SOCIALES - PROFESIONAL Y MODERNA
    ============================================================================= */
 
-.tiktok-section {
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+.social-section {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #ffffff 100%);
     padding: 80px 0;
-    color: white;
+    color: var(--text-dark);
     position: relative;
     overflow: hidden;
 }
@@ -1767,5 +1948,670 @@ a {
         justify-self: center;
         padding: 12px 24px;
         font-size: 1rem;
+    }
+}
+
+/* =============================================================================
+   🎬 CARRUSEL DE 3 VIDEOS ESTILO TIKTOK
+   ============================================================================= */
+
+.social-section {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.social-section .container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.video-carousel {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.video-item {
+    position: relative;
+    width: 320px;
+    height: 65vh;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Video anterior (izquierda) */
+.video-item.prev {
+    opacity: 0.7;
+    transform: scale(0.85);
+    filter: brightness(0.8);
+    z-index: 1;
+}
+
+/* Video activo (centro) */
+.video-item.active {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: brightness(1);
+    z-index: 10;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    width: 380px;
+    height: 75vh;
+}
+
+/* Video siguiente (derecha) */
+.video-item.next {
+    opacity: 0.7;
+    transform: scale(0.85);
+    filter: brightness(0.8);
+    z-index: 1;
+}
+
+/* Hover en videos laterales */
+.video-item.prev:hover,
+.video-item.next:hover {
+    opacity: 0.9;
+    transform: scale(0.9);
+}
+
+.social-section .container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.video-carousel {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: visible; /* Cambio: permitir que se vean los videos laterales */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 0 50px; /* Reducido para dar más espacio visual */
+}
+
+.video-item {
+    position: relative;
+    width: 320px;
+    height: 60vh;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Videos inactivos - MUY VISIBLES */
+.video-item:not(.active) {
+    opacity: 0.95; /* Casi completamente visible */
+    transform: scale(0.9); /* Solo ligeramente más pequeño */
+    filter: brightness(0.9); /* Sin blur, solo ligeramente más oscuro */
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Borde sutil para definición */
+}
+
+/* Video activo - destacado pero no gigante */
+.video-item.active {
+    opacity: 1;
+    transform: scale(1.05); /* Solo ligeramente más grande */
+    filter: brightness(1);
+    z-index: 10;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+    border: 3px solid rgba(255, 255, 255, 0.3); /* Borde más visible para el activo */
+}
+
+/* Efecto hover en videos inactivos */
+.video-item:not(.active):hover {
+    opacity: 0.9;
+    transform: scale(0.85);
+    filter: blur(1px) brightness(0.9);
+}
+
+.carousel-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    background: #111;
+}
+
+.mute-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 20;
+    backdrop-filter: blur(15px);
+}
+
+.mute-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.mute-btn i {
+    font-size: 20px;
+}
+
+.mute-btn.muted i:before {
+    content: "\f6a9"; /* fa-volume-mute */
+}
+
+/* Indicador del video activo */
+.video-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    border-radius: 2px;
+    z-index: 21;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .carousel-track {
+        gap: 20px;
+        padding: 0 40px;
+    }
+    
+    .video-item {
+        width: 280px;
+        height: 55vh;
+    }
+    
+    .video-item:not(.active) {
+        opacity: 0.9;
+        transform: scale(0.9);
+    }
+    
+    .video-item.active {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-track {
+        gap: 15px;
+        padding: 0 30px;
+    }
+    
+    .video-item {
+        width: 200px;
+        height: 45vh;
+    }
+    
+    .video-item:not(.active) {
+        opacity: 0.85;
+        transform: scale(0.85);
+    }
+    
+    .video-item.active {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-track {
+        gap: 10px;
+        padding: 0 20px;
+    }
+    
+    .video-item {
+        width: 160px;
+        height: 40vh;
+    }
+    
+    .video-item:not(.active) {
+        opacity: 0.8;
+        transform: scale(0.9);
+    }
+    
+    .video-item.active {
+        transform: scale(1.05);
+    }
+}
+
+/* Layout de dos columnas */
+.social-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* Video lado izquierdo */
+.video-column {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.video-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    aspect-ratio: 9/16; /* Proporción vertical TikTok original */
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 15px 40px rgba(92, 46, 46, 0.2);
+}
+
+/* Contenido lado derecho */
+.content-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.social-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 20px;
+}
+
+.social-video::-webkit-media-controls-panel {
+    background: linear-gradient(transparent, rgba(92, 46, 46, 0.8));
+}
+
+.social-video::-webkit-media-controls-play-button,
+.social-video::-webkit-media-controls-mute-button,
+.social-video::-webkit-media-controls-fullscreen-button {
+    background-color: var(--primary-color);
+    border-radius: 8px;
+}
+
+.video-container:hover .social-video {
+    transform: scale(1.02);
+}
+
+/* Header de la sección en la columna derecha */
+.content-column .section-header {
+    margin-bottom: 30px;
+}
+
+.content-column .section-title {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.content-column .section-subtitle {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.video-description {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(92, 46, 46, 0.1);
+}
+
+.video-description h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.video-description p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.project-details ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.project-details li {
+    color: var(--text-light);
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.project-details li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.call-to-action {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Enlaces de redes sociales */
+.social-networks {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(92, 46, 46, 0.1);
+}
+
+.social-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 25px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 8px 25px rgba(92, 46, 46, 0.1);
+    border: 1px solid rgba(92, 46, 46, 0.1);
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(92, 46, 46, 0.2);
+}
+
+.social-link.facebook:hover {
+    background: rgba(24, 119, 242, 0.05);
+    transform: translateY(-5px) scale(1.02);
+}
+
+.social-link.instagram:hover {
+    background: rgba(228, 64, 95, 0.05);
+    transform: translateY(-5px) scale(1.02);
+}
+
+.social-link.tiktok:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: translateY(-5px) scale(1.02);
+}
+
+.social-link.whatsapp:hover {
+    background: rgba(37, 211, 102, 0.05);
+    transform: translateY(-5px) scale(1.02);
+}
+
+.social-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    font-size: 1.8rem;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon i {
+    display: block;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1;
+    font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands", sans-serif;
+}
+
+/* Fallback para iconos si Font Awesome no carga */
+.social-icon i::before {
+    font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands", sans-serif;
+}
+
+/* Estilos específicos para cada icono con fallback */
+.facebook .social-icon i::after {
+    content: "f";
+    font-family: serif;
+    font-weight: bold;
+    display: none;
+}
+
+.instagram .social-icon i::after {
+    content: "◉";
+    display: none;
+}
+
+.tiktok .social-icon i::after {
+    content: "♫";
+    display: none;
+}
+
+.whatsapp .social-icon i::after {
+    content: "✆";
+    display: none;
+}
+
+/* Si Font Awesome falla, mostrar fallback */
+@supports not (font-family: "Font Awesome 6 Brands") {
+    .social-icon i::before {
+        display: none;
+    }
+    .social-icon i::after {
+        display: block !important;
+    }
+}
+
+.facebook .social-icon {
+    background: linear-gradient(135deg, #1877F2, #42A5F5);
+}
+
+.instagram .social-icon {
+    background: linear-gradient(135deg, #E4405F, #F77737, #FCAF45);
+}
+
+.tiktok .social-icon {
+    background: linear-gradient(135deg, #000000, #333333);
+}
+
+.whatsapp .social-icon {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.social-info {
+    flex: 1;
+}
+
+.social-name {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2px;
+}
+
+.social-desc {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.social-cta {
+    text-align: center;
+    padding: 25px 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(92, 46, 46, 0.25);
+    margin-top: 20px;
+}
+
+.social-cta p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .social-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .video-container {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .social-section {
+        padding: 50px 0;
+    }
+    
+    .content-column .section-title {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    
+    .social-content {
+        gap: 30px;
+    }
+    
+    .video-container {
+        max-width: 320px;
+    }
+    
+    .video-description h3 {
+        font-size: 1.6rem;
+    }
+    
+    .video-description,
+    .social-networks {
+        padding: 20px;
+    }
+    
+    .social-link {
+        padding: 15px 18px;
+        gap: 12px;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-section .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .video-container {
+        max-width: 280px;
+    }
+    
+    .video-description h3 {
+        font-size: 1.4rem;
+    }
+    
+    .social-title {
+        font-size: 1.4rem;
+    }
+    
+    .video-description,
+    .social-networks {
+        padding: 18px;
+    }
+    
+    .social-link {
+        padding: 14px 16px;
+        gap: 10px;
+    }
+    
+    .social-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.3rem;
+    }
+    
+    .social-name {
+        font-size: 0.95rem;
+    }
+    
+    .social-desc {
+        font-size: 0.8rem;
     }
 }

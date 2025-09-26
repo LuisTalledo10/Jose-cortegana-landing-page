@@ -14,7 +14,7 @@ const AppState = {
         catalog: null,
         services: null,
         about: null,
-        tiktok: null,
+        social: null,
         contact: null,
         banner: null,
         footer: null
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         initializeModal();
         initializeScrollEffects();
         initializeContactForm();
-        initializeTikTok();
+        initializeSocialSection();
         
         hideLoadingSpinner();
         
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         initializeModal();
         initializeScrollEffects();
         initializeContactForm();
-        initializeTikTok();
+        initializeSocialSection();
         hideLoadingSpinner();
     }
 });
@@ -283,7 +283,7 @@ async function loadAllComponents() {
         { name: 'catalog', container: 'catalog-container' },
         { name: 'services', container: 'services-container' },
         { name: 'about', container: 'about-container' },
-        { name: 'tiktok', container: 'tiktok-container' },
+        { name: 'social', container: 'social-container' },
         { name: 'contact', container: 'contact-container' },
         { name: 'banner', container: 'banner-container' },
         { name: 'footer', container: 'footer-container' }
@@ -347,19 +347,49 @@ function loadFallbackContent(componentName, containerId) {
                 </div>
             </section>
         `,
-        tiktok: `
-            <section id="tiktok" class="tiktok-section">
+        social: `
+            <section id="social" class="social-section">
                 <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">Mira nuestro trabajo en TikTok</h2>
-                        <p class="section-subtitle">Descubre nuestras creaciones y tendencias de diseño interior</p>
-                    </div>
-                    <div class="tiktok-embed-container">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jc.disenointerior" data-unique-id="jc.disenointerior" data-embed-from="embed_page" data-embed-type="creator" style="max-width:780px; min-width:288px;">
-                            <section>
-                                <a target="_blank" href="https://www.tiktok.com/@jc.disenointerior?refer=creator_embed">@jc.disenointerior</a>
-                            </section>
-                        </blockquote>
+                    <div class="video-carousel">
+                        <div class="carousel-track">
+                            <div class="video-item prev" data-index="0">
+                                <video 
+                                    muted
+                                    playsinline
+                                    preload="metadata"
+                                    class="carousel-video">
+                                    <source src="assets/video1.webm" type="video/webm">
+                                </video>
+                                <button class="mute-btn" onclick="toggleMute(this)">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+                            <div class="video-item active" data-index="1">
+                                <video 
+                                    muted
+                                    playsinline
+                                    preload="auto"
+                                    class="carousel-video"
+                                    autoplay>
+                                    <source src="assets/video2.webm" type="video/webm">
+                                </video>
+                                <button class="mute-btn" onclick="toggleMute(this)">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+                            <div class="video-item next" data-index="2">
+                                <video 
+                                    muted
+                                    playsinline
+                                    preload="metadata"
+                                    class="carousel-video">
+                                    <source src="assets/video3.webm" type="video/webm">
+                                </video>
+                                <button class="mute-btn" onclick="toggleMute(this)">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -951,25 +981,151 @@ window.JoseCorteganaApp = {
 };
 
 /**
- * Inicializar funcionalidad TikTok (simplificada para widget oficial)
+ * Inicializar funcionalidad del carrusel de 3 videos
  */
-function initializeTikTok() {
-    console.log('🎵 Inicializando sección TikTok con video local...');
+function initializeSocialSection() {
+    console.log('🎬 Inicializando carrusel de 3 videos...');
     
-    // Verificar que el componente esté cargado
-    const tiktokSection = document.getElementById('tiktok');
-    if (!tiktokSection) {
-        console.log('⚠️ Sección TikTok no encontrada');
+    // Lista de videos disponibles (puedes agregar más aquí)
+    const videoList = [
+        'assets/video1.webm',
+        'assets/video2.webm', 
+        'assets/video3.webm',
+        'assets/video4.webm'
+    ];
+    
+    const videoItems = document.querySelectorAll('.video-item');
+    const videos = document.querySelectorAll('.carousel-video');
+    let currentVideoIndex = 1; // El video del centro (index 1 en el DOM)
+    let videoListIndex = 1; // Índice actual en la lista de videos
+    
+    if (videoItems.length === 0) {
+        console.warn('No se encontraron videos en el carrusel');
         return;
     }
+
+    console.log(`📹 Carrusel de 3 videos inicializado con ${videoList.length} videos disponibles`);
+
+    // Inicializar videos
+    videos.forEach((video, index) => {
+        video.addEventListener('loadeddata', () => {
+            console.log(`✅ Video ${index} cargado`);
+            if (index === currentVideoIndex) {
+                video.play().then(() => {
+                    console.log(`▶️ Video central reproduciéndose`);
+                }).catch(e => console.log('Error reproduciendo:', e));
+            }
+        });
+
+        video.addEventListener('error', (e) => {
+            console.error(`❌ Error cargando video ${index}:`, e);
+        });
+
+        video.addEventListener('ended', () => {
+            if (index === currentVideoIndex) {
+                console.log(`🔄 Video central terminó, avanzando carrusel`);
+                nextVideo();
+            }
+        });
+    });
+
+    // Función para avanzar al siguiente video
+    function nextVideo() {
+        // Pausar video actual
+        videos[currentVideoIndex].pause();
+        videos[currentVideoIndex].currentTime = 0;
+        
+        // Animar transición
+        videoItems.forEach((item, index) => {
+            item.classList.remove('prev', 'active', 'next');
+            
+            // Reasignar clases con animación
+            if (index === 0) {
+                item.classList.add('prev');
+            } else if (index === 1) {
+                item.classList.add('active');
+            } else if (index === 2) {
+                item.classList.add('next');
+            }
+        });
+        
+        // Actualizar índices de videos
+        videoListIndex = (videoListIndex + 1) % videoList.length;
+        const prevIndex = videoListIndex === 0 ? videoList.length - 1 : videoListIndex - 1;
+        const nextIndex = (videoListIndex + 1) % videoList.length;
+        
+        // Actualizar fuentes de video
+        setTimeout(() => {
+            updateVideoSource(0, videoList[prevIndex]); // Anterior
+            updateVideoSource(1, videoList[videoListIndex]); // Actual
+            updateVideoSource(2, videoList[nextIndex]); // Siguiente
+            
+            // Reproducir nuevo video central
+            setTimeout(() => {
+                videos[1].play().then(() => {
+                    console.log(`▶️ Nuevo video central reproduciéndose: ${videoList[videoListIndex]}`);
+                }).catch(e => console.log('Error reproduciendo nuevo video:', e));
+            }, 300);
+        }, 200);
+    }
     
-    // Inicializar controles del video
-    initializeVideoControls();
-    
-    console.log('✅ Sección TikTok inicializada con video local');
-    
-    // Track cuando se carga la sección TikTok
-    trackTikTokSectionLoad();
+    // Función para actualizar la fuente de un video
+    function updateVideoSource(videoIndex, newSrc) {
+        const video = videos[videoIndex];
+        const source = video.querySelector('source');
+        
+        if (source.src !== newSrc) {
+            video.pause();
+            source.src = newSrc;
+            video.load();
+            console.log(`🔄 Video ${videoIndex} actualizado a: ${newSrc}`);
+        }
+    }
+
+    // Función global para silenciar/activar audio
+    window.toggleMute = function(button) {
+        const videoItem = button.closest('.video-item');
+        const video = videoItem.querySelector('.carousel-video');
+        const icon = button.querySelector('i');
+        
+        if (video.muted) {
+            video.muted = false;
+            button.classList.remove('muted');
+            icon.className = 'fas fa-volume-up';
+            console.log('🔊 Audio activado');
+        } else {
+            video.muted = true;
+            button.classList.add('muted');
+            icon.className = 'fas fa-volume-mute';
+            console.log('🔇 Audio silenciado');
+        }
+    };
+
+    // Click en videos laterales para avanzar
+    videoItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            if (index !== currentVideoIndex) {
+                if (index === 2) { // Click en video siguiente
+                    nextVideo();
+                } else if (index === 0) { // Click en video anterior
+                    // Retroceder (opcional)
+                    console.log('👆 Click en video anterior');
+                }
+            }
+        });
+    });
+
+    // Reproducir video inicial después de un breve delay
+    setTimeout(() => {
+        const initialVideo = videos[currentVideoIndex];
+        if (initialVideo) {
+            initialVideo.play().then(() => {
+                console.log(`▶️ Video inicial reproduciéndose`);
+            }).catch(e => console.log('Error reproduciendo video inicial:', e));
+        }
+    }, 1000);
+
+    console.log('✅ Carrusel de 3 videos inicializado correctamente');
 }
 
 /**
@@ -978,7 +1134,7 @@ function initializeTikTok() {
 function initializeVideoControls() {
     // Función global para toggle del video
     window.toggleVideo = function(button) {
-        const video = button.closest('.project-preview').querySelector('.tiktok-video');
+        const video = button.closest('.video-container').querySelector('.social-video');
         const icon = button.querySelector('i');
         
         if (!video) {
@@ -1004,7 +1160,7 @@ function initializeVideoControls() {
     
     // Configurar video después de que se cargue el componente
     setTimeout(() => {
-        const video = document.querySelector('.tiktok-video');
+        const video = document.querySelector('.social-video');
         const videoContainer = document.querySelector('.project-preview');
         
         if (video && videoContainer) {
@@ -1046,13 +1202,39 @@ function initializeVideoControls() {
 }
 
 /**
- * Track cuando se carga la sección TikTok
+ * Inicializar tracking de enlaces sociales
  */
-function trackTikTokSectionLoad() {
+function initializeSocialTracking() {
+    const socialLinks = document.querySelectorAll('.social-link');
+    
+    socialLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const socialName = link.classList.contains('facebook') ? 'Facebook' :
+                              link.classList.contains('instagram') ? 'Instagram' :
+                              link.classList.contains('tiktok') ? 'TikTok' :
+                              link.classList.contains('whatsapp') ? 'WhatsApp' : 'Unknown';
+            
+            // Track con Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'social_click', {
+                    event_category: 'Redes Sociales',
+                    event_label: socialName
+                });
+            }
+            
+            console.log(`📱 Click en red social: ${socialName}`);
+        });
+    });
+}
+
+/**
+ * Track cuando se carga la sección de redes sociales
+ */
+function trackSocialSectionLoad() {
     if (typeof gtag !== 'undefined') {
         gtag('event', 'section_load', {
             event_category: 'Social Media',
-            event_label: 'TikTok API Section Loaded'
+            event_label: 'Social Networks Section Loaded'
         });
     }
 }

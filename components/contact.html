@@ -4,80 +4,82 @@
         <h2 class="section-title">Contáctanos</h2>
         
         <!-- Subtítulo descriptivo -->
-        <p style="text-align: center; margin-bottom: 3rem; color: var(--text-light); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <p style="text-align: center; margin-bottom: 2rem; color: var(--text-light); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
             ¿Listo para transformar tu espacio? Contáctanos para una consulta gratuita y comenzar a crear el ambiente de tus sueños
         </p>
         
         <!-- Contenido principal de contacto -->
-        <div class="contact-content">
-            <!-- Formulario de contacto -->
-            <div class="contact-form">
+        <div class="contact-content-full">
+            <!-- Columna izquierda: Formulario de contacto -->
+            <div class="contact-form-col">
                 <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;">
                     Solicita tu Cotización Gratuita
                 </h3>
                 
                 <form id="contact-form" novalidate>
-                    <!-- Campo Nombre -->
-                    <div class="form-group">
-                        <label for="name">
-                            <i class="fas fa-user" style="margin-right: 0.5rem;"></i>
-                            Nombre Completo *
-                        </label>
-                        <input 
-                            type="text" 
-                            id="name" 
-                            name="name" 
-                            placeholder="Ingresa tu nombre completo"
-                            required
-                        >
+                    <!-- Primera fila: Nombre y Email -->
+                    <div class="form-row">
+                        <div class="form-group form-half">
+                            <label for="name">
+                                <i class="fas fa-user" style="margin-right: 0.5rem;"></i>
+                                Nombre Completo *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder="Ingresa tu nombre completo"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="form-group form-half">
+                            <label for="email">
+                                <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>
+                                Correo Electrónico *
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="josequispecortegana@gmail.com"
+                                required
+                            >
+                        </div>
                     </div>
                     
-                    <!-- Campo Email -->
-                    <div class="form-group">
-                        <label for="email">
-                            <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>
-                            Correo Electrónico *
-                        </label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            placeholder="tu.email@ejemplo.com"
-                            required
-                        >
-                    </div>
-                    
-                    <!-- Campo Teléfono -->
-                    <div class="form-group">
-                        <label for="phone">
-                            <i class="fas fa-phone" style="margin-right: 0.5rem;"></i>
-                            Teléfono *
-                        </label>
-                        <input 
-                            type="tel" 
-                            id="phone" 
-                            name="phone" 
-                            placeholder="+51 999 999 999"
-                            required
-                        >
-                    </div>
-                    
-                    <!-- Campo Tipo de Proyecto -->
-                    <div class="form-group">
-                        <label for="project-type">
-                            <i class="fas fa-home" style="margin-right: 0.5rem;"></i>
-                            Tipo de Proyecto
-                        </label>
-                        <select id="project-type" name="project-type" style="width: 100%; padding: 1rem; border: 2px solid transparent; border-radius: 8px; background: var(--white); transition: var(--transition-smooth); font-family: var(--font-secondary);">
-                            <option value="">Selecciona el tipo de proyecto</option>
-                            <option value="cocina">Cocina</option>
-                            <option value="sala">Sala</option>
-                            <option value="comedor">Comedor</option>
-                            <option value="dormitorios">Dormitorios</option>
-                            <option value="oficina">Oficina</option>
-                            <option value="proyecto-completo">Proyecto Completo</option>
-                            <option value="otro">Otro</option>
-                        </select>
+                    <!-- Segunda fila: Teléfono y Tipo de Proyecto -->
+                    <div class="form-row">
+                        <div class="form-group form-half">
+                            <label for="phone">
+                                <i class="fas fa-phone" style="margin-right: 0.5rem;"></i>
+                                Teléfono *
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="+51 949 873 151"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="form-group form-half">
+                            <label for="project-type">
+                                <i class="fas fa-home" style="margin-right: 0.5rem;"></i>
+                                Tipo de Proyecto
+                            </label>
+                            <select id="project-type" name="project-type" style="width: 100%; padding: 1rem; border: 2px solid transparent; border-radius: 8px; background: var(--white); transition: var(--transition-smooth); font-family: var(--font-secondary);">
+                                <option value="">Selecciona el tipo de proyecto</option>
+                                <option value="cocina">Cocina</option>
+                                <option value="sala">Sala</option>
+                                <option value="comedor">Comedor</option>
+                                <option value="dormitorios">Dormitorios</option>
+                                <option value="oficina">Oficina</option>
+                                <option value="proyecto-completo">Proyecto Completo</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
                     </div>
                     
                     <!-- Campo Mensaje -->
@@ -116,95 +118,128 @@
                 </form>
             </div>
             
-            <!-- Información de contacto -->
-            <div class="contact-info">
-                <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;">
-                    Información de Contacto
-                </h3>
-                
-                <!-- Dirección -->
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>Dirección:</strong><br>
-                        <span style="color: var(--text-light);">
-                            Av. Principal 123, Distrito Ejemplo<br>
-                            Lima, Perú
-                        </span>
-                    </div>
-                </div>
-                
-                <!-- Teléfono -->
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <strong>Teléfono:</strong><br>
-                        <a href="tel:+51999999999" style="color: var(--primary-color);">
-                            +51 999 999 999
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Email -->
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Correo:</strong><br>
-                        <a href="mailto:contacto@josecortegana.com" style="color: var(--primary-color);">
-                            contacto@josecortegana.com
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Horario -->
-                <div class="contact-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <strong>Horario de Atención:</strong><br>
-                        <span style="color: var(--text-light);">
-                            Lunes a Viernes: 9:00 AM - 6:00 PM<br>
-                            Sábados: 9:00 AM - 2:00 PM
-                        </span>
-                    </div>
-                </div>
-                
-                <!-- Redes sociales -->
-                <div class="contact-social" style="margin-top: 2rem;">
-                    <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Síguenos en:</h4>
-                    <div class="social-links" style="justify-content: flex-start;">
-                        <a href="https://facebook.com/josecorteganainteriors" 
-                           target="_blank" 
-                           class="social-link"
-                           aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://instagram.com/josecorteganainteriors" 
-                           target="_blank" 
-                           class="social-link"
-                           aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/51999999999" 
-                           target="_blank" 
-                           class="social-link"
-                           aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:contacto@josecortegana.com" 
-                           class="social-link"
-                           aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Mapa (placeholder) -->
-                <div class="contact-map" style="margin-top: 2rem;">
-                    <div style="width: 100%; height: 200px; background: var(--secondary-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
-                        <div style="text-align: center;">
-                            <i class="fas fa-map" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
-                            <p>Mapa interactivo<br><small>Próximamente disponible</small></p>
+            <!-- Columna derecha: Información + Mapa -->
+            <div class="contact-right-col">
+                <!-- Fila superior: Información de contacto -->
+                <div class="contact-info-col">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem; text-align: center;">
+                        Información de Contacto
+                    </h3>
+                    
+                    <!-- Grid de información -->
+                    <div class="contact-info-grid">
+                        <!-- Dirección y Teléfono -->
+                        <div class="contact-info-row">
+                            <div class="contact-item-compact">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Dirección:</strong><br>
+                                    <span style="color: var(--text-light); font-size: 0.9rem;">
+                                        Av. Húsares de Junín 797<br>
+                                        Trujillo 13008, Perú
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item-compact">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>Teléfono:</strong><br>
+                                    <a href="tel:+51949873151" style="color: var(--primary-color); font-size: 0.9rem;">
+                                        +51 949 873 151
+                                    </a>
+                                </div>
+                            </div>
                         </div>
+                        
+                        <!-- Email y Horario -->
+                        <div class="contact-info-row">
+                            <div class="contact-item-compact">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Correo:</strong><br>
+                                    <a href="mailto:josequispecortegana@gmail.com" style="color: var(--primary-color); font-size: 0.9rem;">
+                                        josequispecortegana@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item-compact">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Horario:</strong><br>
+                                    <span style="color: var(--text-light); font-size: 0.9rem;">
+                                        Lun-Vie: 9:00AM-6:00PM<br>
+                                        Sáb: 9:00AM-2:00PM
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Redes sociales -->
+                    <div class="contact-social" style="margin-top: 1rem;">
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; text-align: center; font-size: 1rem;">Síguenos en:</h4>
+                        <div class="social-links" style="justify-content: center; gap: 0.8rem;">
+                            <a href="https://www.facebook.com/share/1K1cJFRkvY/?mibextid=wwXIfr" 
+                               target="_blank" 
+                               class="social-link social-link-small facebook"
+                               aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://instagram.com/josecorteganainteriors" 
+                               target="_blank" 
+                               class="social-link social-link-small instagram"
+                               aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@jc.disenointerior?_t=ZS-901j2fr7JJg&_r=1" 
+                               target="_blank" 
+                               class="social-link social-link-small tiktok"
+                               aria-label="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://api.whatsapp.com/message/H57QFX5ZWUFUA1?autoload=1&app_absent=0" 
+                               target="_blank" 
+                               class="social-link social-link-small whatsapp"
+                               aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="mailto:josequispecortegana@gmail.com" 
+                               class="social-link social-link-small"
+                               aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fila inferior: Mapa -->
+                <div class="contact-map-col">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem; text-align: center;">
+                        <i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i>
+                        Nuestra Ubicación
+                    </h3>
+                    <div style="flex: 1; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <iframe 
+                            src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=es&amp;q=Av.%20H%C3%BAsares%20de%20Jun%C3%ADn%20797,%20Trujillo%2013008,%20Per%C3%BA&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Ubicación de José Cortegana - Diseño de Interiores">
+                        </iframe>
+                    </div>
+                    <div style="margin-top: 1rem; text-align: center;">
+                        <a href="https://www.google.com/maps/search/Av.+H%C3%BAsares+de+Jun%C3%ADn+797,+Trujillo+13008,+Per%C3%BA" 
+                           target="_blank" 
+                           class="submit-btn map-btn" 
+                           style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border: none;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Ver en Google Maps
+                        </a>
                     </div>
                 </div>
             </div>
@@ -217,11 +252,11 @@
                 Para consultas urgentes o proyectos que requieren atención inmediata, no dudes en contactarnos directamente
             </p>
             <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                <a href="tel:+51999999999" class="cta-button" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                <a href="tel:+51949873151" class="cta-button" style="display: inline-flex; align-items: center; gap: 0.5rem;">
                     <i class="fas fa-phone"></i>
                     Llamar Ahora
                 </a>
-                <a href="https://wa.me/51999999999?text=Hola,%20me%20interesa%20sus%20servicios%20de%20diseño%20de%20interiores" 
+                <a href="https://api.whatsapp.com/message/H57QFX5ZWUFUA1?autoload=1&app_absent=0" 
                    target="_blank" 
                    class="cta-button" 
                    style="display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366;">
