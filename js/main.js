@@ -1101,6 +1101,12 @@ function initializeSocialSection() {
         }
     };
 
+    // Función global para abrir TikTok
+    window.openTikTok = function() {
+        window.open('https://www.tiktok.com/@jc.disenointerior?_t=ZS-901j2fr7JJg&_r=1', '_blank');
+        console.log('📱 Abriendo perfil de TikTok');
+    };
+
     // Click en videos laterales para avanzar
     videoItems.forEach((item, index) => {
         item.addEventListener('click', () => {

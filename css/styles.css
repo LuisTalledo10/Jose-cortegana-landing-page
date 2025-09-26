@@ -715,11 +715,69 @@ a {
     align-items: center;
     justify-content: center;
     transition: var(--transition-smooth);
+    color: var(--white);
+    text-decoration: none;
 }
 
 .social-link:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
+}
+
+/* Estilos específicos para los iconos de redes sociales del footer */
+.footer .social-link.facebook {
+    color: #1877f2;
+    background: rgba(24, 119, 242, 0.15);
+}
+
+.footer .social-link.facebook:hover {
+    background: rgba(24, 119, 242, 0.25);
+    color: #1877f2;
+}
+
+.footer .social-link.instagram {
+    color: #E1306C;
+    background: rgba(225, 48, 108, 0.15);
+}
+
+.footer .social-link.instagram:hover {
+    background: rgba(225, 48, 108, 0.25);
+    color: #E1306C;
+}
+
+.footer .social-link.tiktok {
+    color: #000000;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.footer .social-link.tiktok:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #000000;
+}
+
+.footer .social-link.whatsapp {
+    color: #25D366;
+    background: rgba(37, 211, 102, 0.15);
+}
+
+.footer .social-link.whatsapp:hover {
+    background: rgba(37, 211, 102, 0.25);
+    color: #25D366;
+}
+
+/* Estilo para el icón de email */
+.footer .social-link:not(.facebook):not(.instagram):not(.tiktok):not(.whatsapp) {
+    color: #FFD700;
+    background: rgba(255, 215, 0, 0.15);
+}
+
+.footer .social-link:not(.facebook):not(.instagram):not(.tiktok):not(.whatsapp):hover {
+    background: rgba(255, 215, 0, 0.25);
+    color: #FFD700;
+}
+
+.footer .social-link i {
+    color: inherit;
 }
 
 .copyright {
@@ -2146,6 +2204,36 @@ a {
 
 .mute-btn.muted i:before {
     content: "\f6a9"; /* fa-volume-mute */
+}
+
+/* Botón de TikTok */
+.tiktok-btn {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 20;
+    backdrop-filter: blur(15px);
+}
+
+.tiktok-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.tiktok-btn i {
+    font-size: 20px;
 }
 
 /* Indicador del video activo */
